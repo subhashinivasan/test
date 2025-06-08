@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskDueDateInput = document.getElementById('task-due-date');
     const addTaskBtn = document.getElementById('add-task-btn');
     const todoList = document.getElementById('todo-list');
+    const themeCheckbox = document.getElementById('theme-checkbox');
 
     // Initialize Flatpickr and store the instance
     const flatpickrInstance = flatpickr(taskDueDateInput, {
@@ -138,6 +139,30 @@ document.addEventListener('DOMContentLoaded', () => {
             year: 'numeric',
             month: 'short',
             day: 'numeric'
+        });
+    }
+
+    // Theme preference loading and toggle logic
+    if (themeCheckbox) {
+        // Load and apply saved theme preference on page load
+        const savedTheme = localStorage.getItem('themePreference');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeCheckbox.checked = true;
+        } else { // Defaults to light theme (savedTheme === 'light' or no preference)
+            document.body.classList.remove('dark-theme');
+            themeCheckbox.checked = false;
+        }
+
+        // Add event listener for theme changes
+        themeCheckbox.addEventListener('change', () => {
+            if (themeCheckbox.checked) {
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('themePreference', 'dark');
+            } else {
+                document.body.classList.remove('dark-theme');
+                localStorage.setItem('themePreference', 'light');
+            }
         });
     }
 });

@@ -1,3 +1,38 @@
+:root {
+  --body-bg-color: #f4f7f6;
+  --container-bg-color: #fff;
+  --text-color: #333;
+  --heading-color: #2c3e50;
+  --primary-button-bg-color: #5cb85c;
+  --primary-button-hover-bg-color: #4cae4c; /* Added for hover state */
+  --primary-button-text-color: white;
+  --input-bg-color: #fff; /* Default input background for light theme */
+  --input-text-color: #333; /* Default input text color for light theme */
+  --input-border-color: #ddd;
+  --input-focus-border-color: #77b5fe;
+  --input-focus-shadow-color: rgba(119, 181, 254, 0.4);
+  --list-item-bg-color: #e9ecef;
+  --list-item-hover-bg-color: #dfe6e9;
+  --completed-task-bg-color: #d4edda;
+  --completed-task-text-color: #6c757d;
+  --delete-button-bg-color: #dc3545;
+  --delete-button-hover-bg-color: #c82333; /* Added for hover state */
+  --delete-button-text-color: white; /* Added for consistency */
+  --complete-button-bg-color: #28a745;
+  --complete-button-hover-bg-color: #218838; /* Added for hover state */
+  --complete-button-text-color: white; /* Added for consistency */
+  --calendar-bg-color: #f9f9f9; /* Added for calendar section */
+  --calendar-border-color: #eee; /* Added for calendar section */
+  --calendar-accent-border-color: #77b5fe;
+  --flatpickr-selected-day-bg: #5cb85c;
+  --flatpickr-selected-day-border-color: #5cb85c; /* Added for consistency */
+  --flatpickr-today-border-color: #77b5fe;
+  --flatpickr-today-hover-bg: #77b5fe;
+  --flatpickr-today-hover-text: white;
+  --slider-bg-color: #ccc; /* For theme switch */
+  --theme-switch-slider-bg: #ccc; /* Explicitly define for light theme, will be overridden in dark */
+}
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -7,9 +42,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
+    background-color: var(--body-bg-color);
     transition: background-color 0.5s ease; /* Smooth background transition if we ever change it */
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
     display: flex;
     justify-content: center;
@@ -19,7 +54,7 @@ body {
 }
 
 .todo-container {
-    background-color: #fff;
+    background-color: var(--container-bg-color);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -37,7 +72,7 @@ body {
 }
 
 h1 {
-    color: #2c3e50;
+    color: var(--heading-color);
     margin-bottom: 25px;
     font-size: 2.5em;
 }
@@ -53,28 +88,32 @@ h1 {
 #task-input {
     flex-grow: 1; /* Allow input to take available space */
     padding: 12px 15px;
-    border: 2px solid #ddd;
+    border: 2px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
     border-radius: 6px;
     font-size: 1em;
 }
 
 #task-input:focus, #task-due-date:focus {
     outline: none;
-    border-color: #77b5fe;
-    box-shadow: 0 0 0 3px rgba(119, 181, 254, 0.4); /* Softer focus glow */
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 0 3px var(--input-focus-shadow-color); /* Softer focus glow */
 }
 
 #task-due-date {
     padding: 10px;
-    border: 2px solid #ddd;
+    border: 2px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
     border-radius: 6px;
     font-size: 0.9em;
     cursor: pointer;
 }
 
 #add-task-btn {
-    background-color: #5cb85c;
-    color: white;
+    background-color: var(--primary-button-bg-color);
+    color: var(--primary-button-text-color);
     border: none;
     padding: 12px 20px;
     text-align: center;
@@ -87,7 +126,7 @@ h1 {
 }
 
 #add-task-btn:hover {
-    background-color: #4cae4c;
+    background-color: var(--primary-button-hover-bg-color);
     transform: translateY(-2px); /* Slight lift on hover */
 }
 
@@ -102,7 +141,7 @@ h1 {
 }
 
 #todo-list li {
-    background-color: #e9ecef;
+    background-color: var(--list-item-bg-color);
     padding: 12px 15px;
     margin-bottom: 10px;
     border-radius: 6px;
@@ -129,13 +168,13 @@ h1 {
 }
 
 #todo-list li:hover {
-    background-color: #dfe6e9; /* Lighter hover effect */
+    background-color: var(--list-item-hover-bg-color); /* Lighter hover effect */
 }
 
 #todo-list li.completed {
-    background-color: #d4edda;
+    background-color: var(--completed-task-bg-color);
     text-decoration: line-through;
-    color: #6c757d;
+    color: var(--completed-task-text-color);
     opacity: 0.7; /* Slightly fade out completed tasks */
 }
 
@@ -145,8 +184,8 @@ h1 {
 
 
 #todo-list li .task-actions button {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--delete-button-bg-color);
+    color: var(--delete-button-text-color);
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
@@ -160,15 +199,16 @@ h1 {
 }
 
 #todo-list li .task-actions button.complete-btn {
-    background-color: #28a745;
+    background-color: var(--complete-button-bg-color);
+    color: var(--complete-button-text-color);
 }
 #todo-list li .task-actions button.complete-btn:hover {
-    background-color: #218838;
+    background-color: var(--complete-button-hover-bg-color);
     transform: scale(1.1); /* Ensure hover effect is consistent */
 }
 
 #todo-list li .task-actions button.delete-btn:hover {
-    background-color: #c82333;
+    background-color: var(--delete-button-hover-bg-color);
     transform: scale(1.1); /* Ensure hover effect is consistent */
 }
 
@@ -192,10 +232,10 @@ h1 {
 .calendar-section {
     margin-top: 30px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--calendar-bg-color);
     border-radius: 8px;
-    border: 1px solid #eee;
-    border-top: 2px solid #77b5fe; /* Accent color top border */
+    border: 1px solid var(--calendar-border-color);
+    border-top: 2px solid var(--calendar-accent-border-color); /* Accent color top border */
 }
 
 /* Flatpickr specific styling to match the theme */
@@ -204,15 +244,15 @@ h1 {
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange, .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.endRange.nextMonthDay {
-    background: #5cb85c; /* Match add task button color */
-    border-color: #5cb85c;
+    background: var(--flatpickr-selected-day-bg); /* Match add task button color */
+    border-color: var(--flatpickr-selected-day-border-color);
 }
 .flatpickr-day.today {
-    border-color: #77b5fe; /* Accent color for today */
+    border-color: var(--flatpickr-today-border-color); /* Accent color for today */
 }
 .flatpickr-day.today:hover {
-    background: #77b5fe;
-    color: white;
+    background: var(--flatpickr-today-hover-bg);
+    color: var(--flatpickr-today-hover-text);
 }
 
 /* Responsive adjustments */
@@ -235,4 +275,134 @@ h1 {
     h1 {
         font-size: 2em;
     }
+}
+
+/* Theme Switch Styles */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between switch and label */
+  position: absolute; /* Or use flexbox on parent for positioning */
+  top: 20px;
+  right: 20px;
+}
+
+.theme-switch-wrapper span {
+  color: var(--text-color); /* Use CSS variable */
+  font-size: 0.9em;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Adjusted width */
+  height: 28px; /* Adjusted height */
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--slider-bg-color);
+  transition: .4s;
+  border-radius: 28px; /* Adjusted for height */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; /* Adjusted size */
+  width: 20px;  /* Adjusted size */
+  left: 4px;    /* Adjusted position */
+  bottom: 4px;  /* Adjusted position */
+  background-color: white; /* Assuming slider knob is always white */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-button-bg-color); /* Use CSS variable */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-button-bg-color); /* Use CSS variable */
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px); /* Adjusted translation */
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  --body-bg-color: #121212;
+  --container-bg-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --primary-button-bg-color: #68b068;
+  --primary-button-hover-bg-color: #5a9a5a; /* Darker hover for dark theme */
+  --primary-button-text-color: #e0e0e0; /* Lighter text for dark theme button */
+  --input-bg-color: #2a2a2a;
+  --input-text-color: #e0e0e0;
+  --input-border-color: #444;
+  --input-focus-border-color: #8bc34a;
+  --input-focus-shadow-color: rgba(139, 195, 74, 0.4);
+  --list-item-bg-color: #2c2c2c;
+  --list-item-hover-bg-color: #383838;
+  --completed-task-bg-color: #1a3a1a;
+  --completed-task-text-color: #a0a0a0;
+  --delete-button-bg-color: #c62828;
+  --delete-button-hover-bg-color: #b02323; /* Darker hover for dark theme */
+  --delete-button-text-color: #e0e0e0; /* Lighter text for dark theme button */
+  --complete-button-bg-color: #388e3c;
+  --complete-button-hover-bg-color: #2f7a33; /* Darker hover for dark theme */
+  --complete-button-text-color: #e0e0e0; /* Lighter text for dark theme button */
+  --calendar-bg-color: #1e1e1e;
+  --calendar-border-color: #333;
+  --calendar-accent-border-color: #8bc34a;
+  --flatpickr-selected-day-bg: #388e3c;
+  --flatpickr-selected-day-border-color: #388e3c;
+  --flatpickr-today-border-color: #8bc34a;
+  --flatpickr-today-hover-bg: #8bc34a;
+  --flatpickr-today-hover-text: #121212;
+  --theme-switch-slider-bg: #555; /* Darker slider background for dark mode */
+}
+
+/* Ensure flatpickr text color in dark mode is also updated */
+body.dark-theme .flatpickr-calendar {
+    background: var(--container-bg-color); /* Match container bg */
+    color: var(--text-color); /* General text color for calendar */
+}
+
+body.dark-theme .flatpickr-month,
+body.dark-theme .flatpickr-weekday,
+body.dark-theme .flatpickr-weekdays {
+    color: var(--text-color);
+}
+
+body.dark-theme .flatpickr-day {
+    color: var(--text-color);
+}
+body.dark-theme .flatpickr-day.disabled,
+body.dark-theme .flatpickr-day.prevMonthDay,
+body.dark-theme .flatpickr-day.nextMonthDay {
+    color: rgba(224, 224, 224, 0.5); /* Lighter, but dimmed */
+}
+
+/* Update slider background in dark theme using the variable */
+body.dark-theme .slider {
+  background-color: var(--theme-switch-slider-bg);
+}
+
+/* Box shadow for container in dark mode - optional, can make it subtle */
+body.dark-theme .todo-container {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Darker shadow */
 }
