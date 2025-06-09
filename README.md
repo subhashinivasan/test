@@ -38,3 +38,31 @@ A sleek and modern to-do list application with calendar and date functionalities
 *   `script.js`: Handles all the application logic, including task management, date handling, and local storage.
 
 This project was created to demonstrate a modern front-end to-do list implementation.
+
+## Sales Analysis
+
+This project also includes a Python script for basic sales data analysis and visualization.
+
+### `sales_analyzer.py`
+
+The `sales_analyzer.py` script reads sales data from `sales_data.csv`, which should contain 'Year' and 'Sales' columns. It then generates a bar chart visualizing annual sales performance and saves it as `sales_chart.png`.
+
+### How to Run the Script
+
+1.  **Ensure you have Python installed.**
+2.  **Navigate to the project directory** in your terminal.
+3.  **Install dependencies:** The script requires the `matplotlib` library. You can install it using pip:
+    ```bash
+    pip install matplotlib
+    ```
+4.  **Run the script:**
+    ```bash
+    python sales_analyzer.py
+    ```
+    This will process `sales_data.csv` (if present and correctly formatted) and generate `sales_chart.png` in the same directory.
+
+### Files
+
+*   `sales_data.csv`: Sample CSV file containing yearly sales data.
+*   `sales_analyzer.py`: Python script for reading the CSV and generating the sales chart.
+*   `sales_chart.png`: Output image file of the generated sales chart.
