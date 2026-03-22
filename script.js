@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flatpickrInstance.clear(); // Use Flatpickr's clear method
     }
 
-    function createTaskElement(task) {
+    function create TaskElement(task) {
         const li = document.createElement('li');
         li.setAttribute('data-id', task.id);
         if (task.completed) {
